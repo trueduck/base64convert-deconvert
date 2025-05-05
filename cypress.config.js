@@ -6,7 +6,7 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       on('task', {
-        async compareImageWithFixture({fixturePath, receivedBase64}) {
+        async compareImageWithFixture({ fixturePath, receivedBase64 }) {
           //Считаем хэши файла и строки в base64
 
           const originalFileBuffer = await fs.readFile(fixturePath) //Читаем файл
@@ -25,7 +25,7 @@ module.exports = defineConfig({
             .update(receivedBuffer)
             .digest('hex')
           console.log('converted file hash=', receivedHash)
-          return {originalHash, receivedHash} //возвращаем 2 хеша
+          return { originalHash, receivedHash } //возвращаем 2 хеша
         },
       })
     },
